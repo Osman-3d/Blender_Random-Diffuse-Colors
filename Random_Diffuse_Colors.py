@@ -5,6 +5,7 @@
 # Author:      Sakari Niittymaa
 #
 # Created:     27.4.2016
+# Updated:      27.4.2021
 # Copyright:   Copyright(c) 2016 Sakari Niittymaa
 #              http://www.niittymaa.com
 #
@@ -22,7 +23,7 @@ replaceFirstMaterial = False
 for ob in bpy.context.selected_objects:
     
     # Activate current object to assign material
-    bpy.context.scene.objects.active = ob
+    bpy.context.view_layer.objects.active = ob
     
     # Get object material length
     matLen = len(ob.data.materials)
@@ -49,7 +50,7 @@ for ob in bpy.context.selected_objects:
         mat = bpy.data.materials.new(name=hexName)
     
     # Set diffuse to material
-    mat.diffuse_color = (r/255,g/255,b/255)
+    mat.diffuse_color = (r/255,g/255,b/255,1)
     
     # Assign material to exist material in object
     if matLen and createNewMaterialSlot != True:
